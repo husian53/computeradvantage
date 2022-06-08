@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CompanyGroupMasterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+// Route::controller(CompanyGroupMaster::class)->group(function () {
+//     Route::get('/company-group', 'index');
+// });
+Route::get('/company-group', [CompanyGroupMasterController::class, 'index']);
