@@ -4,20 +4,16 @@ namespace App\View\Components;
 
 use Illuminate\View\Component;
 
-class forms.InputText extends Component
+class forms.modal extends Component
 {
-    private $name;
-    private $placeholder;
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    
-    public function __construct($name,$placeholder)
+    public function __construct()
     {
-        $this->name = $name;
-        $this->placeholder = $placeholder;
+        //
     }
 
     /**
@@ -27,6 +23,6 @@ class forms.InputText extends Component
      */
     public function render()
     {
-        return view('components.forms.input-text');
+        return view('components.forms.modal');
     }
 }
