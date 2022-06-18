@@ -27,7 +27,7 @@ html,body{height:100%}</style>
                             @if($errors->has('email'))
                             <span class="text-danger">{{ $errors->first('email') }}</span>
                             @endif
-                            <x-forms.input-text name="password" id="password" placeholder="Password" />
+                            <x-forms.input-text name="password" id="password" placeholder="Password" type="password"/>
                             @if($errors->has('password'))
                             <span class="text-danger">{{ $errors->first('password') }}</span>
                             @endif

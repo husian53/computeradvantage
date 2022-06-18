@@ -22,7 +22,7 @@ class UserAccessController extends Controller
       ]);
       $credentials = $request->only('email','password');
       if(Auth::attempt($credentials)){
-          return redirect()->intended('dashboard')->with('message', 'Welcome');
+          return redirect()->intended('company-group')->with('message', 'Welcome');
       }
       return redirect('login');
     }
