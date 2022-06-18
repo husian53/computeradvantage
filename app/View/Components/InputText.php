@@ -6,18 +6,16 @@ use Illuminate\View\Component;
 
 class forms.InputText extends Component
 {
-    private $name;
-    private $placeholder;
+
     /**
      * Create a new component instance.
      *
      * @return void
      */
     
-    public function __construct($name,$placeholder)
+    public function __construct()
     {
-        $this->name = $name;
-        $this->placeholder = $placeholder;
+        
     }
 
     /**

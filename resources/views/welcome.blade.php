@@ -15,7 +15,11 @@
 
 <body>
     <div class="container-fluid">
-
+    @if(session()->has('message'))
+    <div class="alert alert-success">
+        {{ session()->get('message') }}
+    </div>
+@endif
         <div class="row vw-100 vh-100 d-flex justify-content-center align-items-center">
             <x-forms.button id="showForm"/>
             <div class="col-md-8">
@@ -27,16 +31,7 @@
                                 <th>Company Name</th>
 
                             </thead>
-                            <tbody>
-                                @foreach ($data as $company)
-
-                                <tr>
-                                    <td>{{ $company->company_group_name }}</td>
-
-                                </tr>
-                                @endforeach
-
-                            </tbody>
+                             
                         </table>
                     </div>
                 </div>
@@ -50,7 +45,7 @@
         </x-slot>
     </x-forms.modal>
     <script src="{{ mix('js/app.js') }}"></script>
-    <script type="module" src="{{ asset('modules/companygroupmaster.js') }}"></script>
+    <!-- <script type="module" src="{{ asset('modules/companygroupmaster.js') }}"></script> -->
     <script>
        
     </script>

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CompanyGroupMasterController;
+use App\Http\Controllers\UserAccessController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,10 +15,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
+Route::get('dashboard', function () {
     return view('welcome');
 });
 // Route::controller(CompanyGroupMaster::class)->group(function () {
 //     Route::get('/company-group', 'index');
 // });
 Route::get('/company-group', [CompanyGroupMasterController::class, 'index']);
+Route::get('/login', [UserAccessController::class, 'index'])->name('login');
+Route::post('/validate-login', [UserAccessController::class, 'login'])->name('user.access');
+
