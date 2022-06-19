@@ -1,6 +1,7 @@
 <?php
 
-use App\Http\Controllers\CompanyGroupMasterController;
+use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\CompanyGroupController;
 use App\Http\Controllers\UserAccessController;
 use Illuminate\Support\Facades\Route;
 
@@ -15,13 +16,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('dashboard', function () {
-//     return view('super.companygroupmaster');
+// Route::get('company', function () {
+//     return view('super.company');
 // });
 // Route::controller(CompanyGroupMaster::class)->group(function () {
 //     Route::get('/company-group', 'index');
 // });
-Route::get('/company-group', [CompanyGroupMasterController::class, 'index']);
+Route::get('/company-group', [CompanyGroupController::class, 'index']);
+Route::get('/company',[CompanyController::class,'index']);
 Route::get('/login', [UserAccessController::class, 'index'])->name('login');
 Route::post('/validate-login', [UserAccessController::class, 'login'])->name('user.access');
-Route::post('/store',[CompanyGroupMasterController::class,'store'])->name('cgm');
+Route::post('/store-company-group',[CompanyGroupController::class,'store'])->name('company.group');
+Route::post('/store-company',[CompanyController::class,'store'])->name('company');
