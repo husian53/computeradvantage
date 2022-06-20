@@ -9,7 +9,7 @@
     <script src="{{ asset('js/app.js') }}"></script>
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-   
+
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -28,25 +28,31 @@
                 <form method="POST" action="{{ route ('company')}}">
                     @csrf
                     <x-forms.card>
-                            <x-slot name="element">
-                                <x-forms.select name="companyGroupId" id="companyGroupId">
-                                    <x-slot name="options">
-                                        @foreach($options as $option)
-                                        <option value='{{ $option->company_group_id }}'>{{ $option->company_group_name }}</option>
-                                        @endforeach
-                                    </x-slot>
-                                </x-forms.select>
-                                <x-forms.input-text name="companyName" placeholder="Company Name" />
-                                <div class="row">
-                                    <div class="col">
-                                        <x-forms.datepicker />
-                                    </div>
-                                    <div class="col">
-                                        <x-forms.datepicker id="end" />
-                                    </div>
+                        <x-slot name="element">
+                            <x-forms.select name="companyGroupId" id="companyGroupId">
+                                <x-slot name="options">
+                                    @foreach($options as $option)
+                                    <option value='{{ $option->company_group_id }}'>{{ $option->company_group_name }}</option>
+                                    @endforeach
+                                </x-slot>
+                            </x-forms.select>
+                            <!-- <x-forms.input-text name="companyName" placeholder="Company Name" /> -->
+                            <input type="text" class="form-control form-control-solid mb-2" name="companyName" id="companyName" placeholder="Company Name" list="item_n"  autocomplete="off"/>
+                            <datalist id="item_n">
+                                @foreach($items as $item)
+                                <option id="{{$item->company_master_id}}" value="{{$item->company_name}}">{{$item->company_name}}</option>
+                                @endforeach
+                            </datalist>
+                            <div class="row">
+                                <div class="col">
+                                    <x-forms.datepicker />
                                 </div>
-                                <x-forms.button id="submit" />
-                            </x-slot>
+                                <div class="col">
+                                    <x-forms.datepicker id="end" name="end" />
+                                </div>
+                            </div>
+                            <x-forms.button id="submit" />
+                        </x-slot>
                     </x-forms.card>
                 </form>
 

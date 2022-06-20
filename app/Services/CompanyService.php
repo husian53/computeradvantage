@@ -6,16 +6,19 @@ use App\Models\Company;
 
 class CompanyService{
 
+    public function all(){
+        return $data = Company::all();
+    }
+
     public function store($request){
 
+        $company = Company::updateOrCreate(
+            ['company_name' => $request->companyName],
+            ['company_group_id' => $request->companyGroupId]
+        );
 
-        $company = new Company;
-
-        $company->company_name = $request->companyName;
-
-        $company->company_group_id = $request->companyGroupId;
-
-        $company->save();
+         return $company->company_master_id;
+        
     }
 
 }
