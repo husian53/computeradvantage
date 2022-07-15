@@ -9,19 +9,18 @@ class Year extends Model
 {
     use HasFactory;
 
-    protected $table = 'year_master';
+    protected $table = 'year';
 
-    protected $primaryKey = 'year_master_id';
 
     protected $fillable = [
-        'company_master_id','year_start','year_end'
+        'company_id','start_date','end_date'
     ];
 
     protected $casts = [
 
-        'year_start' => 'date',
+        'start_date' => 'date',
         
-        'year_end' => 'date',
+        'end_date' => 'date',
 
     ];
 }

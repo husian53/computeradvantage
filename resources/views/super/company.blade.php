@@ -18,11 +18,7 @@
 <body>
     <div class="container-fluid">
         <h3 class="py-5">Company </h3>
-        @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
-        @endif
+       <x-alert/>
         <div class="row  d-flex justify-content-center align-items-center">
             <div class="col-md-6">
                 <form method="POST" action="{{ route ('company')}}">
@@ -32,17 +28,18 @@
                             <x-forms.select name="companyGroupId" id="companyGroupId">
                                 <x-slot name="options">
                                     @foreach($options as $option)
-                                    <option value='{{ $option->company_group_id }}'>{{ $option->company_group_name }}</option>
+                                    <option value='{{ $option->id }}'>{{ $option->company_group_name }}</option>
                                     @endforeach
                                 </x-slot>
                             </x-forms.select>
                             <!-- <x-forms.input-text name="companyName" placeholder="Company Name" /> -->
-                            <input type="text" class="form-control form-control-solid mb-2" name="companyName" id="companyName" placeholder="Company Name" list="item_n"  autocomplete="off"/>
-                            <datalist id="item_n">
+                            <x-forms.datalist name="companyName" id="companyName" placeholder="Company Name">
+                            <x-slot name="listOptions">
                                 @foreach($items as $item)
-                                <option id="{{$item->company_master_id}}" value="{{$item->company_name}}">{{$item->company_name}}</option>
+                                <option id="{{$item->id}}" value="{{$item->company_name}}">{{$item->company_name}}</option>
                                 @endforeach
-                            </datalist>
+                            </x-slot>
+                            </x-forms.datalist>
                             <div class="row">
                                 <div class="col">
                                     <x-forms.datepicker />
@@ -74,10 +71,20 @@
             </div>
         </div>
     </div>
-
-    <script src="{{ mix('js/app.js') }}"></script>
-    <script type="module" src="{{ asset('modules/companygroupmaster.js') }}"></script>
-
 </body>
+<script>
+    $('#start').datepicker({
+    dateFormat: 'dd-mm-yy',
+    changeMonth: true,
+    changeYear: true,
+}
+);
 
+$('#end').datepicker({
+    dateFormat: 'dd-mm-yy',
+    changeMonth: true,
+    changeYear: true,
+}
+);
+</script>
 </html>

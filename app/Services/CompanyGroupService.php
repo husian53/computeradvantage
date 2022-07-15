@@ -13,7 +13,7 @@ class CompanyGroupService{
 
     }
 
-    public function all(){
+    public static function all(){
         
       return  $data = CompanyGroup::all();
          

@@ -10,11 +10,11 @@ class YearService{
 
          $year = new Year;
 
-         $year->company_master_id = $companyId;
+         $year->company_id = $companyId;
 
-         $year->year_start = $request->start;
+         $year->start_date = $request->start;
 
-         $year->year_end = $request->end;
+         $year->end_date = $request->end;
 
          $year->save();
     }

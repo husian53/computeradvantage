@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\CompanyController;
-use App\Http\Controllers\CompanyGroupController;
+use App\Http\Controllers\Super\CompanyController;
+use App\Http\Controllers\Super\CompanyGroupController;
 use App\Http\Controllers\UserAccessController;
 use Illuminate\Support\Facades\Route;
 
@@ -28,3 +28,8 @@ Route::get('/login', [UserAccessController::class, 'index'])->name('login');
 Route::post('/validate-login', [UserAccessController::class, 'login'])->name('user.access');
 Route::post('/store-company-group',[CompanyGroupController::class,'store'])->name('company.group');
 Route::post('/store-company',[CompanyController::class,'store'])->name('company');
+Route::get('/register',[UserAccessController::class,'register'])->middleware('can:admin');
+Route::POST('/get-companies',[CompanyController::class,'companies'])->name('companies.get');
+Route::POST('/store-user',[UserAccessController::class,'store'])->name('register.user');
+Route::get('/client-company',[CompanyController::class,'userCompany'])->middleware('can:user');
+

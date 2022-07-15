@@ -23,6 +23,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "bootstrap-datepicker": "^1.9.0"
+        "bootstrap-datepicker": "^1.9.0",
+        "multiple-select": "^1.5.2"
     }
 }

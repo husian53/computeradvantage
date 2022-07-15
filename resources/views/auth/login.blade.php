@@ -18,6 +18,7 @@ html,body{height:100%}</style>
     <div class="container h-100">
         <div class="row align-items-center h-100">
             <div class="col-md-4 mx-auto">
+                <x-alert/>
                 <div class="card h-100 justify-content-center">
                     <div class="card-header text-center">Login</div>
                     <div class="card-body">

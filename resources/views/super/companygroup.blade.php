@@ -16,11 +16,7 @@
 <body>
     <div class="container-fluid">
         <h3 class="py-5">Company Group</h3>
-        @if(session()->has('message'))
-        <div class="alert alert-success">
-            {{ session()->get('message') }}
-        </div>
-        @endif
+        <x-alert/>
         <div class="row  d-flex justify-content-center align-items-center">
             <div class="col-md-6">
                 <form method="POST" action="{{ route ('company.group') }}">
@@ -58,10 +54,6 @@
     </div>
 
     <script src="{{ mix('js/app.js') }}"></script>
-    <script type="module" src="{{ asset('modules/companygroupmaster.js') }}"></script>
-    <script>
-
-    </script>
 </body>
 
 </html>

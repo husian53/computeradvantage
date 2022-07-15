@@ -9,12 +9,10 @@ class Company extends BaseModel
 {
     use HasFactory;
     
-    protected $table = 'company_master';
-
-    protected $primaryKey = 'company_master_id';
+    protected $table = 'company';
     
     protected $fillable = [
-        'company_group_id','company_name','company_master_id','year_start','year_End'
+        'company_group_id','company_name','start_date','end_date'
     ];
     
    
